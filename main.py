@@ -40,6 +40,8 @@ class Record:
                 self.phones.remove(phone)
 
     def edit_phone(self, old_phone_number, new_phone_number):
+        if not Phone(new_phone_number).validate(new_phone)number:
+            raise ValueError("Invalid phone number format. Should start from 0 and be 10 digits")
         for phone in self.phones:
             if phone.value == old_phone_number:
                 phone.value = new_phone_number
