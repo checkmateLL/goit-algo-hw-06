@@ -39,14 +39,12 @@ class Record:
             if phone.value == phone_number:
                 self.phones.remove(phone)
 
-    def edit_phone(self, old_phone_number, new_phone_number):
-        if not Phone(new_phone_number).validate(new_phone)number:
-            raise ValueError("Invalid phone number format. Should start from 0 and be 10 digits")
-        for phone in self.phones:
-            if phone.value == old_phone_number:
-                phone.value = new_phone_number
-                return
-        raise ValueError("Phone number not found")
+    def edit_phone(self, old_phone, new_phone):
+        phone = self.find_phone(old_phone)
+        if not phone:
+           raise ValueError
+       self.add_phone(new_phone)
+       self.remove_phone(old_phone)
 
         
     def find_phone(self, phone_number):
